@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::view('/jogos','jogos');
 
@@ -23,4 +23,7 @@ use Illuminate\Support\Facades\Route;
 //     return "Curso de Laravel";
 // });
 
-Route::view('/jogos', 'jogos',['name'=>'GTA']);
+// Route::view('/jogos', 'jogos',['name'=>'GTA']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
